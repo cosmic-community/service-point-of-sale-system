@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        border: '#e2e8f0', // Define the border color (slate-200 equivalent)
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',

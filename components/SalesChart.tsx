@@ -15,8 +15,10 @@ export default function SalesChart({ sales }: SalesChartProps) {
     const salesByDate: Record<string, number> = {}
     
     sales.forEach(sale => {
-      const date = new Date(sale.created_at).toISOString().split('T')[0]
-      salesByDate[date] = (salesByDate[date] || 0) + sale.metadata.total_amount
+      const dateStr = new Date(sale.created_at).toISOString().split('T')[0]
+      if (dateStr) {
+        salesByDate[dateStr] = (salesByDate[dateStr] || 0) + sale.metadata.total_amount
+      }
     })
 
     // Convert to chart format and sort by date

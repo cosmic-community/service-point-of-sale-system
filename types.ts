@@ -266,7 +266,7 @@ export interface CommissionFilter {
 }
 
 // Utility types
-export type OptionalMetadata<T> = Partial<T['metadata']>;
+export type OptionalMetadata<T extends CosmicObject> = Partial<T['metadata']>;
 export type CreateObjectData<T extends CosmicObject> = Omit<T, 'id' | 'created_at' | 'modified_at' | 'slug'>;
 
 // Type guards

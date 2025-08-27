@@ -53,12 +53,15 @@ export function getDaysInDateRange(startDate: string, endDate: string): number {
 }
 
 export function getDateRangeArray(startDate: string, endDate: string): string[] {
-  const dates = []
+  const dates: string[] = []
   const start = new Date(startDate)
   const end = new Date(endDate)
   
   for (let dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
-    dates.push(new Date(dt).toISOString().split('T')[0])
+    const dateString = new Date(dt).toISOString().split('T')[0]
+    if (dateString) {
+      dates.push(dateString)
+    }
   }
   
   return dates
